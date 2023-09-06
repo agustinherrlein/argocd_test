@@ -33,8 +33,6 @@ spec:
           done
           done
           echo "YAML resources exported and stored in the 'exported-yaml' directory."
-      securityContext:
-        runAsUser: 1000  # Specify a user with the necessary permissions
       restartPolicy: Never
       livenessProbe:
         httpGet:
