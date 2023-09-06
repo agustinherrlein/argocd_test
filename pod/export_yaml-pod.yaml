@@ -24,7 +24,6 @@ spec:
           done
           done
           echo "YAML resources exported and stored in the 'exported-yaml' directory."
-
       livenessProbe:
         exec:
           command:
