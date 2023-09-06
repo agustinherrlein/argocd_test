@@ -19,7 +19,6 @@ spec:
         - "-c"
         - |
           #!/bin/sh
-          "while true; do sleep 3600; done"
           # Create a directory to store the exported YAML files
           cd /tmp/
           mkdir -p exported-yaml
@@ -34,6 +33,7 @@ spec:
           done
           done
           echo "YAML resources exported and stored in the 'exported-yaml' directory."
+          while true; do sleep 3600; done"
       restartPolicy: Never
       livenessProbe:
         httpGet:
