@@ -30,3 +30,4 @@ spec:
             - cat
             - /tmp/healthy
         periodSeconds: 60
+        timeoutSeconds: 60
