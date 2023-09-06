@@ -10,6 +10,7 @@ resources:
     cpu: 200m
     memory: 256Mi
 spec:
+  serviceAccountName: my-serviceaccount
   containers:
     - name: my-container
       image: bitnami/kubectl
