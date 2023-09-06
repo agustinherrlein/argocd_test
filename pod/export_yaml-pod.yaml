@@ -14,7 +14,8 @@ spec:
   containers:
     - name: my-container
       image: bitnami/kubectl
-      command: ["/bin/sh", "sleep 3600"]
+      command: ["/bin/sh"]
+      command : ["sleep 3600"]
       args:
         - "-c"
         - |
