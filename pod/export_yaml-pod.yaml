@@ -20,6 +20,7 @@ spec:
         - |
           #!/bin/sh
           # Create a directory to store the exported YAML files
+          cd /tmp/
           mkdir -p exported-yaml
           # Loop through all namespaces in the cluster
           for namespace in $(kubectl get namespaces -o jsonpath='{.items[*].metadata.name}'); do
