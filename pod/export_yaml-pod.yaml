@@ -12,7 +12,7 @@ resources:
 spec:
   containers:
     - name: my-container
-      image: busybox
+      image: ubuntu:latest
       command: ["/bin/sh"]
       args:
         - "-c"
