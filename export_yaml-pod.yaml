@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: my-container
+      image: busybox
+      command: ["/bin/sh"]
+      args:
+        - "-c"
+        - |
+          #!/bin/sh
+          # Create a directory to store the exported YAML files
+          mkdir -p exported-yaml
+          # Loop through all namespaces in the cluster
+          for namespace in $(kubectl get namespaces -o jsonpath='{.items[*].metadata.name}'); do
+          # Create a directory for each namespace
+          mkdir -p "exported-yaml/$namespace"
+          # Export YAML for all resources in the namespace
+          for resource in $(kubectl get all,configmap,secret,serviceaccount,ingress,configmap -n $namespace -o name); do
+          # Get the resource's YAML and save it to a file
+          kubectl get -n $namespace -o yaml $resource > "exported-yaml/$namespace/$(basename $resource).yaml"
+          done
+          done
+          echo "YAML resources exported and stored in the 'exported-yaml' directory."
