@@ -33,7 +33,7 @@ spec:
           done
           done
           echo "YAML resources exported and stored in the 'exported-yaml' directory."
-          while true; do sleep 3600; done"
+          tail -f /dev/null
       restartPolicy: Never
       livenessProbe:
         httpGet:
