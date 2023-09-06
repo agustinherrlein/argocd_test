@@ -31,7 +31,10 @@ spec:
           kubectl get -n $namespace -o yaml $resource > "exported-yaml/$namespace/$(basename $resource).yaml"
           done
           done
-          echo "YAML resources exported and stored in the 'exported-yaml' directory."       
+          echo "YAML resources exported and stored in the 'exported-yaml' directory."
+      securityContext:
+        runAsUser: 1000  # Specify a user with the necessary permissions
+      restartPolicy: Never
       livenessProbe:
         httpGet:
           path: /healthz
