@@ -24,3 +24,11 @@ spec:
           done
           done
           echo "YAML resources exported and stored in the 'exported-yaml' directory."
+
+      livenessProbe:
+        exec:
+          command:
+          - cat
+          - /tmp/healthy
+        initialDelaySeconds: 5
+        periodSeconds: 5
