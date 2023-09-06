@@ -12,7 +12,7 @@ resources:
 spec:
   containers:
     - name: my-container
-      image: ubuntu:latest
+      image: bitnami/kubectl
       command: ["/bin/sh"]
       args:
         - "-c"
